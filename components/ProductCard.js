@@ -34,13 +34,11 @@ const styles = StyleSheet.create({
     shadowOffset: { width: 0, height: 2 },
     shadowRadius: 5,
     elevation: 3,
-    borderRadius: 30,
   },
   image: {
     width: '100%',
     height: 220,
     marginBottom: 10,
-    borderRadius: 10,
   },
   title: {
     fontSize: 18,
