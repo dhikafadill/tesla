@@ -10,7 +10,7 @@ export default function ProductCard({ product }) {
 
   const handlePress = () => {
     dispatch(selectProduct(product));
-    navigation.navigate('ProductDetail');
+    navigation.navigate('Product Detail');
   };
 
   return (
@@ -18,14 +18,14 @@ export default function ProductCard({ product }) {
       <Image source={product.image} style={styles.image} />
       <Text style={styles.title}>{product.name}</Text>
       <Text style={styles.price}>${product.price}</Text>
-      <Button title="Lihat Detail" onPress={handlePress} />
+      <Button title="Lihat Detail" onPress={handlePress} style={styles.tombol} />
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   card: {
-    padding: 25,
+    // padding: 25,
     margin: 25,
     backgroundColor: '#fff',
     borderRadius: 5,
@@ -43,11 +43,16 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 18,
     fontWeight: 'bold',
+    marginLeft: 10,
     marginBottom: 10,
   },
   price: {
     fontSize: 16,
     color: '#888',
     marginBottom: 20,
+    marginLeft: 10,
   },
+  tombol: {
+    backgroundColor: '#000',
+  }
 });
