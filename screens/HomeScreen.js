@@ -1,7 +1,8 @@
 import React from 'react';
 import { View, Text, Image, StyleSheet, FlatList } from 'react-native';
 import ProductCard from '../components/ProductCard';
-import teslaLogo from '../assets/tesla-motors-logo-light.png';
+import teslaLogo from '../assets/tesla-motors-logo-dark.png';
+import teslatxt from '../assets/tesla-motors-text-dark.png';
 
 const products = [
   {
@@ -45,7 +46,7 @@ export default function HomeScreen() {
   return (
     <View style={styles.container}>
       <Image source={teslaLogo} style={styles.logo} />
-      <Text style={styles.title}>TOKO MOBIL TESLA</Text>
+      <Image source={teslatxt} style={styles.txt} />
       <FlatList
         data={products}
         keyExtractor={(item) => item.id}
@@ -59,7 +60,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 10,
-    backgroundColor: '#000',
+    backgroundColor: '#fff',
   },
   logo: {
     width: 150,
@@ -67,14 +68,23 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     resizeMode: 'contain',
     aspectRatio: 1,
-    marginVertical: 20,
+    marginVertical: 0,
+  },
+  txt: {
+    width: 150,
+    height: 150,
+    alignSelf: 'center',
+    resizeMode: 'contain',
+    aspectRatio: 1,
+    marginVertical: -70,
+    marginBottom: 1,
   },
   title: {
     fontSize: 24,
     fontWeight: 'bold',
     textAlign: 'center',
-    marginBottom: 20,
-    color: '#fff',
-    fontFamily: 'Roboto',
+    marginVertical: 30,
+    marginBottom: 10,
+    color: '#000',
   },
 });
