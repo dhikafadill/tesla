@@ -15,17 +15,20 @@ export default function ProductCard({ product }) {
 
   return (
     <View style={styles.card}>
-      <Image source={product.image} style={styles.image} />
+      <View style={styles.imageContainer}>
+        <Image source={product.image} style={styles.image} />
+        <View style={styles.overlay} />
+      </View>
       <Text style={styles.title}>{product.name}</Text>
       <Text style={styles.price}>${product.price}</Text>
       <Button title="Lihat Detail" onPress={handlePress} color="#000" />
     </View>
+
   );
 }
 
 const styles = StyleSheet.create({
   card: {
-    // padding: 25,
     margin: 25,
     backgroundColor: '#fff',
     borderRadius: 5,
@@ -35,21 +38,37 @@ const styles = StyleSheet.create({
     shadowRadius: 5,
     elevation: 3,
   },
+  imageContainer: {
+    position: 'relative',
+    width: '100%',
+    height: 300,
+  },
   image: {
     width: '100%',
-    height: 220,
-    marginBottom: 10,
+    height: '100%',
+    borderRadius: 5,
+  },
+  overlay: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    backgroundColor: 'rgba(0, 0, 0, 0.2)', // Lapisan hitam semi-transparan
+    borderRadius: 5,
   },
   title: {
     fontSize: 18,
     fontWeight: 'bold',
-    marginLeft: 10,
+    color: '#fff',
+    marginTop: -100,
+    marginLeft: 20,
     marginBottom: 10,
   },
   price: {
     fontSize: 16,
-    color: '#888',
+    color: '#fff',
     marginBottom: 20,
-    marginLeft: 10,
+    marginLeft: 20,
   },
 });
