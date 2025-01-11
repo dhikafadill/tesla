@@ -47,6 +47,7 @@ export default function HomeScreen() {
         data={products}
         keyExtractor={(item) => item.id}
         renderItem={({ item }) => <ProductCard product={item} />}
+        showsVerticalScrollIndicator={false} // Hilangkan scrollbar vertikal
       />
     </View>
   );
