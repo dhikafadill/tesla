@@ -1,8 +1,8 @@
 import React from 'react';
 import { View, Text, Image, StyleSheet, FlatList } from 'react-native';
 import ProductCard from '../components/ProductCard';
-import teslaLogo from '../assets/tesla-motors-logo-dark.png';
-import teslatxt from '../assets/tesla-motors-text-dark.png';
+import teslaLogo from '../assets/tesla-motors-logo-light.png';
+import teslatxt from '../assets/tesla-motors-text-light.png';
 
 const products = [
   {
@@ -60,7 +60,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 10,
-    backgroundColor: '#fff',
+    backgroundColor: '#000',
   },
   logo: {
     width: 150,

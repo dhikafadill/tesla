@@ -3,6 +3,8 @@ import { View, Text, Image, Button, StyleSheet } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { useDispatch } from 'react-redux';
 import { selectProduct } from '../redux/productSlice';
+import { TouchableOpacity } from 'react-native';
+
 
 export default function ProductCard({ product }) {
   const navigation = useNavigation();
@@ -21,7 +23,9 @@ export default function ProductCard({ product }) {
       </View>
       <Text style={styles.title}>{product.name}</Text>
       <Text style={styles.price}>${product.price}</Text>
-      <Button title="Lihat Detail" onPress={handlePress} color="#000" />
+      <TouchableOpacity style={styles.button} onPress={handlePress}>
+        <Text style={styles.buttonText}>Lihat Detail</Text>
+      </TouchableOpacity>
     </View>
 
   );
@@ -30,8 +34,7 @@ export default function ProductCard({ product }) {
 const styles = StyleSheet.create({
   card: {
     margin: 25,
-    backgroundColor: '#fff',
-    borderRadius: 5,
+    backgroundColor: '#000',
     shadowColor: '#000',
     shadowOpacity: 0.1,
     shadowOffset: { width: 0, height: 2 },
@@ -46,7 +49,6 @@ const styles = StyleSheet.create({
   image: {
     width: '100%',
     height: '100%',
-    borderRadius: 5,
   },
   overlay: {
     position: 'absolute',
@@ -61,14 +63,30 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: 'bold',
     color: '#fff',
-    marginTop: -100,
+    marginTop: -150,
     marginLeft: 20,
     marginBottom: 10,
   },
   price: {
     fontSize: 16,
     color: '#fff',
-    marginBottom: 20,
+    marginBottom: 50,
     marginLeft: 20,
+  },
+  button: {
+    height: 50, // Tinggi tombol
+    borderWidth: 2, // Border tombol
+    borderColor: '#fff', // Warna border
+    justifyContent: 'center', // Teks berada di tengah secara vertikal
+    alignItems: 'center', // Teks berada di tengah secara horizontal
+    marginTop: -30, // Margin atas tombol
+    marginHorizontal: 20, // Margin kiri dan kanan untuk tombol
+    borderRadius: 5, // Sudut tombol yang melengkung
+  },
+  buttonText: {
+    fontSize: 16,
+    fontWeight: 'bold',
+    color: '#fff', // Warna teks tombol
+    fontFamily: 'Helvetica', // Jenis font
   },
 });

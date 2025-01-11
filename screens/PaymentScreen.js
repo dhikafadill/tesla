@@ -10,7 +10,7 @@ export default function PaymentScreen() {
   const handlePayment = () => {
     // Logic untuk pembayaran
     alert('Pembelian Berhasil');
-    navigation.navigate('TOKO TESLA', { successMessage: 'Pembayaran berhasil, Produk akan dikirimkan ke lokasi anda' });
+    navigation.navigate('Home', { successMessage: 'Pembayaran berhasil, Produk akan dikirimkan ke lokasi anda' });
   };
 
   return (
