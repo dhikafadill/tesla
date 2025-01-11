@@ -10,7 +10,7 @@ export default function PaymentScreen() {
   const handlePayment = () => {
     // Logic untuk pembayaran
     alert('Pembelian Berhasil');
-    navigation.navigate('Home', { successMessage: 'Pembayaran berhasil, Produk akan dikirimkan ke lokasi anda' });
+    navigation.navigate('TOKO TESLA', { successMessage: 'Pembayaran berhasil, Produk akan dikirimkan ke lokasi anda' });
   };
 
   return (
@@ -18,21 +18,21 @@ export default function PaymentScreen() {
       <Text style={styles.title}>Metode Pembayaran</Text>
       <View style={styles.paymentOption}>
         <Image source={require('../assets/bca.jpg')} style={styles.paymentImage} />
-        <Button title="Bank BCA" onPress={handlePayment} />
+        <Button title="Bank BCA" onPress={handlePayment} color="#000"/>
       </View>
       <View style={styles.paymentOption}>
         <Image source={require('../assets/mandiri.png')} style={styles.paymentImage} />
-        <Button title="Bank Mandiri" onPress={handlePayment} />
+        <Button title="Bank Mandiri" onPress={handlePayment} color="#000"/>
       </View>
       <View style={styles.paymentOption}>
         <Image source={require('../assets/bni.jpg')} style={styles.paymentImage} />
-        <Button title="Bank BNI" onPress={handlePayment} />
+        <Button title="Bank BNI" onPress={handlePayment} color="#000"/>
       </View>
       <View style={styles.paymentOption}>
         <Image source={require('../assets/crypto.jpg')} style={styles.paymentImage} />
-        <Button title="Crypto" onPress={handlePayment} />
+        <Button title="Crypto" onPress={handlePayment} color="#000"/>
       </View>
-      <Button title="Kembali" onPress={() => navigation.goBack()} />
+      <Button title="Kembali" onPress={() => navigation.goBack()} color="#000"/>
     </View>
   );
 }

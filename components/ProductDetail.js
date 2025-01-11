@@ -28,8 +28,8 @@ export default function ProductDetail() {
       <Text style={styles.title}>{product.name}</Text>
       <Text style={styles.price}>${product.price}</Text>
       <Text style={styles.description}>{product.description}</Text>
-      <Button title="Beli" onPress={handlePurchase} />
-      <Button title="Kembali" onPress={handleBack} />
+      <Button title="Beli" onPress={handlePurchase} color="#000"/>
+      <Button title="Kembali" onPress={handleBack} color="#000"/>
     </View>
   );
 }

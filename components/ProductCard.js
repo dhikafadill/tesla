@@ -18,7 +18,7 @@ export default function ProductCard({ product }) {
       <Image source={product.image} style={styles.image} />
       <Text style={styles.title}>{product.name}</Text>
       <Text style={styles.price}>${product.price}</Text>
-      <Button title="Lihat Detail" onPress={handlePress} style={styles.tombol} />
+      <Button title="Lihat Detail" onPress={handlePress} color="#000" />
     </View>
   );
 }
@@ -52,7 +52,4 @@ const styles = StyleSheet.create({
     marginBottom: 20,
     marginLeft: 10,
   },
-  tombol: {
-    backgroundColor: '#000',
-  }
 });

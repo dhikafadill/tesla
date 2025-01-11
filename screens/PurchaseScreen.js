@@ -26,8 +26,8 @@ export default function PurchaseScreen() {
         value={address}
         onChangeText={setAddress}
       />
-      <Button title="Lanjutkan ke Pembayaran" onPress={handleNext} />
-      <Button title="Kembali" onPress={() => navigation.goBack()} />
+      <Button title="Lanjutkan ke Pembayaran" onPress={handleNext} color="#000"/>
+      <Button title="Kembali" onPress={() => navigation.goBack()} color="#000" />
     </View>
   );
 }
