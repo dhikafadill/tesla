@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { View, FlatList, StyleSheet, Image, ActivityIndicator } from 'react-native';
 import { collection, getDocs } from 'firebase/firestore';
 import { db } from '../firebase';
-import ProductCard from '../components/ProductCard'; // Pastikan Anda sudah memiliki komponen ini
+import ProductCard from '../components/ProductCard';
 import teslaLogo from '../assets/tesla-motors-logo-light.png';
 import teslatxt from '../assets/tesla-motors-text-light.png';
 
