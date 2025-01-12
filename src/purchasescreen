@@ -1,0 +1,87 @@
+import React, { useState } from 'react';
+import { View, Text, TextInput, Button, StyleSheet, Alert } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
+import { getFirestore, collection, addDoc } from 'firebase/firestore';
+import { initializeApp } from 'firebase/app';
+
+// Initialize Firebase
+const firebaseConfig = {
+  apiKey: 'YOUR_API_KEY',
+  authDomain: 'YOUR_AUTH_DOMAIN',
+  projectId: 'YOUR_PROJECT_ID',
+  storageBucket: 'YOUR_STORAGE_BUCKET',
+  messagingSenderId: 'YOUR_MESSAGING_SENDER_ID',
+  appId: 'YOUR_APP_ID',
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+
+export default function PurchaseScreen() {
+  const navigation = useNavigation();
+  const [name, setName] = useState('');
+  const [dateOfBirth, setDateOfBirth] = useState('');
+  const [country, setCountry] = useState('');
+  const [city, setCity] = useState('');
+  const [address, setAddress] = useState('');
+  const [phone, setPhone] = useState('');
+
+  const handlePurchase = async () => {
+    const userData = {
+      name,
+      date_of_birth: dateOfBirth,
+      country,
+      city,
+      address,
+      phone,
+    };
+
+    try {
+      const docRef = await addDoc(collection(db, 'users'), userData);
+      console.log('Document written with ID: ', docRef.id);
+
+      Alert.alert('Success', 'Data berhasil disimpan ke Firebase!');
+      navigation.navigate('Payment', userData);
+    } catch (error) {
+      console.error('Error adding document: ', error);
+      Alert.alert('Error', 'Terjadi masalah saat menyimpan data ke Firebase.');
+    }
+  };
+
+  return (
+    <View style={styles.container}>
+      <Text style={styles.title}>Informasi Pembeli</Text>
+      <TextInput style={styles.input} placeholder="Nama" value={name} onChangeText={setName} />
+      <TextInput style={styles.input} placeholder="Tanggal Lahir (YYYY-MM-DD)" value={dateOfBirth} onChangeText={setDateOfBirth} />
+      <TextInput style={styles.input} placeholder="Negara" value={country} onChangeText={setCountry} />
+      <TextInput style={styles.input} placeholder="Kota" value={city} onChangeText={setCity} />
+      <TextInput style={styles.input} placeholder="Alamat" value={address} onChangeText={setAddress} />
+      <TextInput style={styles.input} placeholder="No Telepon" value={phone} onChangeText={setPhone} />
+      <Button
+        title="Lanjutkan ke Pembayaran"
+        onPress={handlePurchase}
+      />
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    padding: 20,
+    backgroundColor: '#fff',
+  },
+  title: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    marginBottom: 20,
+  },
+  input: {
+    width: '100%',
+    padding: 10,
+    marginVertical: 10,
+    borderWidth: 1,
+    borderColor: '#ccc',
+    borderRadius: 5,
+  },
+});
