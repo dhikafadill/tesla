@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
 import { useNavigation, useRoute } from '@react-navigation/native';
+import Background from '../components/Background'; // **Mengimpor Background**
 
 export default function PaymentScreen() {
   const navigation = useNavigation();
@@ -15,65 +16,67 @@ export default function PaymentScreen() {
   };
 
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Metode Pembayaran</Text>
+    <Background> {/* Menggunakan komponen Background */}
+      <View style={styles.container}>
+        <Text style={styles.title}>Metode Pembayaran</Text>
 
-      {/* Bank BCA */}
-      <TouchableOpacity
-        style={[styles.paymentButton, styles.marginHorizontal]}
-        onPress={() => handlePayment('Bank BCA')}
-      >
-        <Image
-          source={require('../assets/bca.jpg')}
-          style={styles.paymentImage}
-        />
-        <Text style={styles.buttonText}>Bank BCA</Text>
-      </TouchableOpacity>
+        {/* Bank BCA */}
+        <TouchableOpacity
+          style={[styles.paymentButton, styles.marginHorizontal]}
+          onPress={() => handlePayment('Bank BCA')}
+        >
+          <Image
+            source={require('../assets/bca.jpg')}
+            style={styles.paymentImage}
+          />
+          <Text style={styles.buttonText}>Bank BCA</Text>
+        </TouchableOpacity>
 
-      {/* Bank Mandiri */}
-      <TouchableOpacity
-        style={[styles.paymentButton, styles.marginHorizontal]}
-        onPress={() => handlePayment('Bank Mandiri')}
-      >
-        <Image
-          source={require('../assets/mandiri.png')}
-          style={styles.paymentImage}
-        />
-        <Text style={styles.buttonText}>Bank Mandiri</Text>
-      </TouchableOpacity>
+        {/* Bank Mandiri */}
+        <TouchableOpacity
+          style={[styles.paymentButton, styles.marginHorizontal]}
+          onPress={() => handlePayment('Bank Mandiri')}
+        >
+          <Image
+            source={require('../assets/mandiri.png')}
+            style={styles.paymentImage}
+          />
+          <Text style={styles.buttonText}>Bank Mandiri</Text>
+        </TouchableOpacity>
 
-      {/* Bank BNI */}
-      <TouchableOpacity
-        style={[styles.paymentButton, styles.marginHorizontal]}
-        onPress={() => handlePayment('Bank BNI')}
-      >
-        <Image
-          source={require('../assets/bni.jpg')}
-          style={styles.paymentImage}
-        />
-        <Text style={styles.buttonText}>Bank BNI</Text>
-      </TouchableOpacity>
+        {/* Bank BNI */}
+        <TouchableOpacity
+          style={[styles.paymentButton, styles.marginHorizontal]}
+          onPress={() => handlePayment('Bank BNI')}
+        >
+          <Image
+            source={require('../assets/bni.jpg')}
+            style={styles.paymentImage}
+          />
+          <Text style={styles.buttonText}>Bank BNI</Text>
+        </TouchableOpacity>
 
-      {/* Crypto */}
-      <TouchableOpacity
-        style={[styles.paymentButton, styles.marginHorizontal]}
-        onPress={() => handlePayment('Crypto')}
-      >
-        <Image
-          source={require('../assets/crypto.jpg')}
-          style={styles.paymentImage}
-        />
-        <Text style={styles.buttonText}>Crypto</Text>
-      </TouchableOpacity>
+        {/* Crypto */}
+        <TouchableOpacity
+          style={[styles.paymentButton, styles.marginHorizontal]}
+          onPress={() => handlePayment('Crypto')}
+        >
+          <Image
+            source={require('../assets/crypto.jpg')}
+            style={styles.paymentImage}
+          />
+          <Text style={styles.buttonText}>Crypto</Text>
+        </TouchableOpacity>
 
-      {/* Tombol Kembali */}
-      <TouchableOpacity
-        style={[styles.backButton, styles.marginHorizontal]}
-        onPress={() => navigation.goBack()}
-      >
-        <Text style={styles.buttonText}>Kembali</Text>
-      </TouchableOpacity>
-    </View>
+        {/* Tombol Kembali */}
+        <TouchableOpacity
+          style={[styles.backButton, styles.marginHorizontal]}
+          onPress={() => navigation.goBack()}
+        >
+          <Text style={styles.buttonText}>Kembali</Text>
+        </TouchableOpacity>
+      </View>
+    </Background>
   );
 }
 
@@ -81,7 +84,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 20,
-    backgroundColor: '#000',
+    // backgroundColor: '#000',
   },
   title: {
     fontSize: 24,

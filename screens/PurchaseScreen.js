@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, StyleSheet, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
+import Background from '../components/Background'; // **Mengimpor Background**
 
 export default function PurchaseScreen() {
   const navigation = useNavigation();
@@ -12,29 +13,31 @@ export default function PurchaseScreen() {
   };
 
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Informasi Pembeli</Text>
-      <TextInput
-        style={styles.input}
-        placeholder="Nama"
-        placeholderTextColor="#888" // Placeholder text menjadi abu-abu
-        value={name}
-        onChangeText={setName}
-      />
-      <TextInput
-        style={styles.input}
-        placeholder="Alamat"
-        placeholderTextColor="#888"
-        value={address}
-        onChangeText={setAddress}
-      />
-      <TouchableOpacity style={styles.button} onPress={handleNext}>
-        <Text style={styles.buttonText}>Lanjutkan ke Pembayaran</Text>
-      </TouchableOpacity>
-      <TouchableOpacity style={styles.button} onPress={() => navigation.goBack()}>
-        <Text style={styles.buttonText}>Kembali</Text>
-      </TouchableOpacity>
-    </View>
+    <Background> {/* Menggunakan komponen Background */}
+      <View style={styles.container}>
+        <Text style={styles.title}>Informasi Pembeli</Text>
+        <TextInput
+          style={styles.input}
+          placeholder="Nama"
+          placeholderTextColor="#888" // Placeholder text menjadi abu-abu
+          value={name}
+          onChangeText={setName}
+        />
+        <TextInput
+          style={styles.input}
+          placeholder="Alamat"
+          placeholderTextColor="#888"
+          value={address}
+          onChangeText={setAddress}
+        />
+        <TouchableOpacity style={styles.button} onPress={handleNext}>
+          <Text style={styles.buttonText}>Lanjutkan ke Pembayaran</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.button} onPress={() => navigation.goBack()}>
+          <Text style={styles.buttonText}>Kembali</Text>
+        </TouchableOpacity>
+      </View>
+    </Background>
   );
 }
 
@@ -42,7 +45,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 20,
-    backgroundColor: '#000', // Background hitam
   },
   title: {
     fontSize: 24,

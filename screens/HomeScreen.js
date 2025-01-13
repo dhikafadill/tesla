@@ -5,6 +5,7 @@ import { db } from '../firebase';
 import ProductCard from '../components/ProductCard';
 import teslaLogo from '../assets/tesla-motors-logo-light.png';
 import teslatxt from '../assets/tesla-motors-text-light.png';
+import Background from '../components/Background'; // Import komponen Background
 
 export default function HomeScreen() {
   const [products, setProducts] = useState([]);
@@ -43,17 +44,49 @@ export default function HomeScreen() {
   }
 
   return (
-    <View style={styles.container}>
-      <Image source={teslaLogo} style={styles.logo} />
-      <Image source={teslatxt} style={styles.txt} />
-      <FlatList
-        data={products}
-        keyExtractor={(item) => item.id.toString()} // Pastikan ID diubah ke string
-        renderItem={({ item }) => <ProductCard product={item} />}
-        showsVerticalScrollIndicator={false}
-      />
-    </View>
+    <Background> {/* Menggunakan komponen Background */}
+      <View style={styles.innerContainer}>
+        <Image source={teslaLogo} style={styles.logo} />
+        <Image source={teslatxt} style={styles.txt} />
+        <FlatList
+          data={products}
+          keyExtractor={(item) => item.id.toString()}
+          renderItem={({ item }) => <ProductCard product={item} />}
+          showsVerticalScrollIndicator={false}
+          contentContainerStyle={styles.flatListContainer} // Menambahkan gaya untuk flatlist
+        />
+      </View>
+    </Background>
   );
+
+  //  return (
+  //   <ImageBackground
+  //     source={{ uri: 'https://api.starlink.com/public-files/home_illustriation1_d.jpg' }} // Gantilah dengan URL gambar Anda
+  //     style={styles.container}
+  //   >
+  //     <Image source={teslaLogo} style={styles.logo} />
+  //     <Image source={teslatxt} style={styles.txt} />
+  //     <FlatList
+  //       data={products}
+  //       keyExtractor={(item) => item.id.toString()} // Pastikan ID diubah ke string
+  //       renderItem={({ item }) => <ProductCard product={item} />}
+  //       showsVerticalScrollIndicator={false}
+  //     />
+  //   </ImageBackground>
+  // );
+
+  // return (
+  //   <View style={styles.container}>
+  //     <Image source={teslaLogo} style={styles.logo} />
+  //     <Image source={teslatxt} style={styles.txt} />
+  //     <FlatList
+  //       data={products}
+  //       keyExtractor={(item) => item.id.toString()} // Pastikan ID diubah ke string
+  //       renderItem={({ item }) => <ProductCard product={item} />}
+  //       showsVerticalScrollIndicator={false}
+  //     />
+  //   </View>
+  // );
 }
 
 const styles = StyleSheet.create({
@@ -61,6 +94,15 @@ const styles = StyleSheet.create({
     flex: 1,
     padding: 10,
     backgroundColor: '#000',
+  },
+  innerContainer: {
+    flex: 1, // Memastikan elemen dalam container bisa scroll
+    justifyContent: 'justify',
+    alignItems: 'justify',
+    // paddingBottom: 20, // Menambahkan sedikit ruang di bawah
+  },
+  flatListContainer: {
+    paddingBottom: 20, // Menambahkan ruang agar konten tidak terpotong di bawah
   },
   logo: {
     width: 150,

@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useNavigation } from '@react-navigation/native';
 import { clearSelectedProduct } from '../redux/productSlice';
 import { TouchableOpacity } from 'react-native';
+import Background from '../components/Background'; // **Mengimpor Background**
 
 
 export default function ProductDetail() {
@@ -25,25 +26,26 @@ export default function ProductDetail() {
   };
 
   return (
-    <View style={styles.container}>
-      <Image source={product.image} style={styles.image} />
-      <Text style={styles.title}>{product.name}</Text>
-      <Text style={styles.price}>${product.price}</Text>
-      <Text style={styles.description}>{product.description}</Text>
-      <TouchableOpacity style={styles.button} onPress={handlePurchase}>
-        <Text style={styles.buttonText}>Beli</Text>
-      </TouchableOpacity>
-      <TouchableOpacity style={styles.button} onPress={handleBack}>
-        <Text style={styles.buttonText}>Kembali</Text>
-      </TouchableOpacity>
-    </View>
+    <Background> {/* Menggunakan komponen Background */}
+      <View style={styles.container}>
+        <Image source={product.image} style={styles.image} />
+        <Text style={styles.title}>{product.name}</Text>
+        <Text style={styles.price}>${product.price}</Text>
+        <Text style={styles.description}>{product.description}</Text>
+        <TouchableOpacity style={styles.button} onPress={handlePurchase}>
+          <Text style={styles.buttonText}>Beli</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.button} onPress={handleBack}>
+          <Text style={styles.buttonText}>Kembali</Text>
+        </TouchableOpacity>
+      </View>
+    </Background>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#000', // Background hitam
     padding: 20,
     alignItems: 'center',
   },
