@@ -81,7 +81,7 @@ const styles = StyleSheet.create({
     alignItems: 'center', // Teks berada di tengah secara horizontal
     marginTop: -30, // Margin atas tombol
     marginHorizontal: 20, // Margin kiri dan kanan untuk tombol
-    borderRadius: 5, // Sudut tombol yang melengkung
+    borderRadius: 10, // Sudut tombol yang melengkung
   },
   buttonText: {
     fontSize: 16,

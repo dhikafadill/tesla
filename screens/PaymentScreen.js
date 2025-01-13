@@ -22,11 +22,11 @@ export default function PaymentScreen() {
 
         {/* Bank BCA */}
         <TouchableOpacity
-          style={[styles.paymentButton, styles.marginHorizontal]}
+          style={[styles.paymentButton]}
           onPress={() => handlePayment('Bank BCA')}
         >
           <Image
-            source={require('../assets/bca.jpg')}
+            source={require('../assets/bca-logo-tranparent.png')}
             style={styles.paymentImage}
           />
           <Text style={styles.buttonText}>Bank BCA</Text>
@@ -34,11 +34,11 @@ export default function PaymentScreen() {
 
         {/* Bank Mandiri */}
         <TouchableOpacity
-          style={[styles.paymentButton, styles.marginHorizontal]}
+          style={[styles.paymentButton]}
           onPress={() => handlePayment('Bank Mandiri')}
         >
           <Image
-            source={require('../assets/mandiri.png')}
+            source={require('../assets/mandiri-logo-tranparent.png')}
             style={styles.paymentImage}
           />
           <Text style={styles.buttonText}>Bank Mandiri</Text>
@@ -46,11 +46,11 @@ export default function PaymentScreen() {
 
         {/* Bank BNI */}
         <TouchableOpacity
-          style={[styles.paymentButton, styles.marginHorizontal]}
+          style={[styles.paymentButton]}
           onPress={() => handlePayment('Bank BNI')}
         >
           <Image
-            source={require('../assets/bni.jpg')}
+            source={require('../assets/bni-logo-tranparent.png')}
             style={styles.paymentImage}
           />
           <Text style={styles.buttonText}>Bank BNI</Text>
@@ -58,11 +58,11 @@ export default function PaymentScreen() {
 
         {/* Crypto */}
         <TouchableOpacity
-          style={[styles.paymentButton, styles.marginHorizontal]}
+          style={[styles.paymentButton]}
           onPress={() => handlePayment('Crypto')}
         >
           <Image
-            source={require('../assets/crypto.jpg')}
+            source={require('../assets/btc-a-logo-tranparent.png')}
             style={styles.paymentImage}
           />
           <Text style={styles.buttonText}>Crypto</Text>
@@ -70,10 +70,10 @@ export default function PaymentScreen() {
 
         {/* Tombol Kembali */}
         <TouchableOpacity
-          style={[styles.backButton, styles.marginHorizontal]}
+          style={[styles.backButton]}
           onPress={() => navigation.goBack()}
         >
-          <Text style={styles.buttonText}>Kembali</Text>
+          <Text style={styles.buttonBackText}>Kembali</Text>
         </TouchableOpacity>
       </View>
     </Background>
@@ -91,6 +91,7 @@ const styles = StyleSheet.create({
     color: '#fff',
     marginBottom: 20,
     textAlign: 'center',
+    marginBottom: 30,
   },
   paymentButton: {
     flexDirection: 'row',
@@ -98,27 +99,30 @@ const styles = StyleSheet.create({
     backgroundColor: '#333',
     padding: 15,
     borderRadius: 10,
-    marginBottom: 15,
+    marginBottom: 10,
   },
   backButton: {
-    backgroundColor: '#444',
+    backgroundColor: '#fff',
     padding: 15,
     borderRadius: 10,
     alignItems: 'center', // Tombol "Kembali" tetap di tengah
+    marginTop: 30, // Memberi jarak antara tombol "Kembali" dengan tombol pembayaran
+  },
+  buttonBackText: {
+    fontSize: 16,
+    fontWeight: 'bold',
+    color: '#000',
   },
   paymentImage: {
-    width: 40,
-    height: 40,
+    width: 30,
+    height: 30,
     resizeMode: 'contain',
-    marginRight: 10, // Memberi jarak antara gambar dan teks
+    marginRight: 30, // Memberi jarak antara gambar dan teks
   },
   buttonText: {
     fontSize: 16,
     fontWeight: 'bold',
     color: '#fff',
     textAlign: 'left', // Teks tombol pembayaran menempel ke kiri
-  },
-  marginHorizontal: {
-    marginHorizontal: 20, // Menjaga margin kanan dan kiri tetap sejajar
   },
 });

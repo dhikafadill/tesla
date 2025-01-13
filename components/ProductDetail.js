@@ -35,8 +35,8 @@ export default function ProductDetail() {
         <TouchableOpacity style={styles.button} onPress={handlePurchase}>
           <Text style={styles.buttonText}>Beli</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.button} onPress={handleBack}>
-          <Text style={styles.buttonText}>Kembali</Text>
+        <TouchableOpacity style={styles.backButton} onPress={handleBack}>
+          <Text style={styles.buttonBackText}>Kembali</Text>
         </TouchableOpacity>
       </View>
     </Background>
@@ -74,8 +74,8 @@ const styles = StyleSheet.create({
     padding: 15, // Tinggi tombol
     backgroundColor: '#fff',
     alignItems: 'center',
-    borderRadius: 5,
-    marginVertical: 5,
+    borderRadius: 10,
+    marginTop: 30,
     justifyContent: 'center',  // Menyusun teks di tengah vertikal
     alignItems: 'center',      // Menyusun teks di tengah horizontal
   },
@@ -84,5 +84,18 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: 'bold',
     textAlign: 'center', // Teks tombol tetap di tengah
+  },
+  backButton: {
+    width: '100%', // Melebar penuh ke kanan dan kiri
+    backgroundColor: '#fff',
+    padding: 15,
+    borderRadius: 10,
+    alignItems: 'center', // Tombol "Kembali" tetap di tengah
+    marginTop: 10, // Memberi jarak antara tombol "Kembali" dengan tombol pembayaran
+  },
+  buttonBackText: {
+    fontSize: 16,
+    fontWeight: 'bold',
+    color: '#000',
   },
 });
