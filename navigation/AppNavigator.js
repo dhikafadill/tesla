@@ -15,7 +15,9 @@ const handleLogin = () => {
 
 export default function AppNavigator({ navigation }) {
   return (
-    <Stack.Navigator>
+    <Stack.Navigator screenOptions={{
+      headerShown: false, // Matikan header untuk semua halaman
+    }}>
       <Stack.Screen 
         name="Home" 
         component={HomeScreen} />
