@@ -58,35 +58,6 @@ export default function HomeScreen() {
       </View>
     </Background>
   );
-
-  //  return (
-  //   <ImageBackground
-  //     source={{ uri: 'https://api.starlink.com/public-files/home_illustriation1_d.jpg' }} // Gantilah dengan URL gambar Anda
-  //     style={styles.container}
-  //   >
-  //     <Image source={teslaLogo} style={styles.logo} />
-  //     <Image source={teslatxt} style={styles.txt} />
-  //     <FlatList
-  //       data={products}
-  //       keyExtractor={(item) => item.id.toString()} // Pastikan ID diubah ke string
-  //       renderItem={({ item }) => <ProductCard product={item} />}
-  //       showsVerticalScrollIndicator={false}
-  //     />
-  //   </ImageBackground>
-  // );
-
-  // return (
-  //   <View style={styles.container}>
-  //     <Image source={teslaLogo} style={styles.logo} />
-  //     <Image source={teslatxt} style={styles.txt} />
-  //     <FlatList
-  //       data={products}
-  //       keyExtractor={(item) => item.id.toString()} // Pastikan ID diubah ke string
-  //       renderItem={({ item }) => <ProductCard product={item} />}
-  //       showsVerticalScrollIndicator={false}
-  //     />
-  //   </View>
-  // );
 }
 
 const styles = StyleSheet.create({
