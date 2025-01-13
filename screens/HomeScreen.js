@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { View, FlatList, StyleSheet, Image, ActivityIndicator } from 'react-native';
-import { collection, getDocs } from 'firebase/firestore';
+import { collection, getDocs, query, orderBy } from 'firebase/firestore';
 import { db } from '../firebase';
 import ProductCard from '../components/ProductCard';
 import teslaLogo from '../assets/tesla-motors-logo-light.png';
@@ -10,15 +10,19 @@ export default function HomeScreen() {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  // Fungsi untuk mengambil data dari Firestore
   const fetchProducts = async () => {
     try {
-      const querySnapshot = await getDocs(collection(db, 'products')); // Koleksi 'products'
+      const productsRef = collection(db, 'products');
+      const productsQuery = query(productsRef, orderBy('id', 'asc')); // Sorting numerik berdasarkan ID
+      const querySnapshot = await getDocs(productsQuery);
+
       const productList = querySnapshot.docs.map((doc) => ({
         id: doc.id,
         ...doc.data(),
       }));
-      setProducts(productList); // Menyimpan data ke state
+
+      console.log('Data produk yang diambil:', productList);
+      setProducts(productList);
     } catch (error) {
       console.error('Gagal mengambil data produk:', error);
     } finally {
@@ -27,10 +31,9 @@ export default function HomeScreen() {
   };
 
   useEffect(() => {
-    fetchProducts(); // Ambil data saat komponen pertama kali dimuat
+    fetchProducts();
   }, []);
 
-  // Jika masih loading, tampilkan spinner
   if (loading) {
     return (
       <View style={[styles.container, styles.center]}>
@@ -45,9 +48,9 @@ export default function HomeScreen() {
       <Image source={teslatxt} style={styles.txt} />
       <FlatList
         data={products}
-        keyExtractor={(item) => item.id}
+        keyExtractor={(item) => item.id.toString()} // Pastikan ID diubah ke string
         renderItem={({ item }) => <ProductCard product={item} />}
-        showsVerticalScrollIndicator={false} // Hilangkan scrollbar vertikal
+        showsVerticalScrollIndicator={false}
       />
     </View>
   );
