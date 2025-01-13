@@ -51,13 +51,16 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     marginBottom: 20,
     color: '#fff', // Teks putih
+    textAlign: 'center', // Teks rata teng
   },
   input: {
     width: '100%',
-    padding: 10,
+    height: 50,
+    padding: 20,
     marginVertical: 10,
     color: '#fff', // Input teks putih
     backgroundColor: '#333', // Background input abu-abu gelap
+    borderRadius: 5,
   },
   button: {
     width: '100%', // Melebar penuh ke kanan dan kiri
