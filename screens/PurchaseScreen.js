@@ -7,6 +7,10 @@ export default function PurchaseScreen() {
   const navigation = useNavigation();
   const [name, setName] = useState('');
   const [address, setAddress] = useState('');
+  const [dateofbirth, setDateofbirth] = useState('');
+  const [email, setEmail] = useState('');
+  const [phonenumber, setPhonenumber] = useState('');
+  const [country, setCountry] = useState('');
 
   const handleNext = () => {
     navigation.navigate('Payment', { name, address });
@@ -29,6 +33,34 @@ export default function PurchaseScreen() {
           placeholderTextColor="#888"
           value={address}
           onChangeText={setAddress}
+        />
+         <TextInput
+          style={styles.input}
+          placeholder="Tanggal Lahir"
+          placeholderTextColor="#888"
+          value={address}
+          onChangeText={setDateofbirth}
+        />
+          <TextInput
+          style={styles.input}
+          placeholder="Email"
+          placeholderTextColor="#888"
+          value={address}
+          onChangeText={setEmail}
+        />
+           <TextInput
+          style={styles.input}
+          placeholder="No Telepon"
+          placeholderTextColor="#888"
+          value={address}
+          onChangeText={setPhonenumber}
+        />
+           <TextInput
+          style={styles.input}
+          placeholder="Negara"
+          placeholderTextColor="#888"
+          value={address}
+          onChangeText={setCountry}
         />
         <TouchableOpacity style={styles.button} onPress={handleNext}>
           <Text style={styles.buttonText}>Lanjutkan ke Pembayaran</Text>
