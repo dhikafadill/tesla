@@ -6,6 +6,7 @@ import ProductDetailScreen from '../screens/ProductDetailScreen';
 import PurchaseScreen from '../screens/PurchaseScreen';
 import PaymentScreen from '../screens/PaymentScreen';
 import LoginScreen from '../screens/LoginScreen';
+import RegisterScreen from '../screens/RegisterScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -18,13 +19,12 @@ export default function AppNavigator({ navigation }) {
     <Stack.Navigator screenOptions={{
       headerShown: false, // Matikan header untuk semua halaman
     }}>
-      <Stack.Screen 
-        name="Home" 
-        component={HomeScreen} />
+      <Stack.Screen name="Login" component={LoginScreen} />
+      <Stack.Screen name="Home" component={HomeScreen} />
       <Stack.Screen name="Product Detail" component={ProductDetailScreen} />
       <Stack.Screen name="Purchase" component={PurchaseScreen} />
       <Stack.Screen name="Payment" component={PaymentScreen} />
-      <Stack.Screen name="Login" component={LoginScreen} />
+      <Stack.Screen name="Register" component={RegisterScreen} />
     </Stack.Navigator>
   );
 }
