@@ -39,7 +39,6 @@ const LoginScreen = ({ navigation }) => {
     <View style={styles.container}>
         <Image source={teslaLogo} style={styles.logo} />
                 <Image source={teslatxt} style={styles.txt} />
-    <Text style={styles.title}>Login</Text>
       <TextInput
         placeholder="Email"
         value={email}
